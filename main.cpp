@@ -1,33 +1,23 @@
-#include <stdio.h>
+﻿#include <stdio.h>
 
-template <typename Type>
-Type Min(Type a, Type b) {
-	if (a < b)
+int Recursive(int num, int money) {
+	if (num <= 0)
 	{
-		return static_cast<Type>(a);
+		return (0);
 	}
 
-	if (a > b)
-	{
-		return static_cast<Type>(b);
-	}
+	return (money + Recursive(num - 1, money * 2 - 50));
 }
 
-template <>
-char Min<char>(char a, char b)
-{
-	return printf("�����ȊO�͑���ł��܂���\n");
-}
+int main() {
+	int num = 8;
 
-int main()
-{
-	printf("%d\n", Min<int>(10 , 5));
-	printf("%f\n", Min<float>(10.0f , 5.0f));
-	printf("%lf\n", Min<double>(5.5 , 10.5));
+	int Normal = 1072 * num;
 
-	char a = 'a';
-	char b = 'b';
-	Min<char>(a , b);
-
+	int money = 100;
+	int result;
+	result = Recursive(num, money);
+	printf("一般的は%d時間働くと%d稼げる\n", num, Normal);
+	printf("再帰的は%d時間働くと%d稼げる\n", num,result);
 	return 0;
 }
