@@ -2,6 +2,7 @@
 #include <iostream>
 #include <Windows.h>
 #include <time.h>
+#include <functional>
 
 typedef void (*PFunc)(int,int);
 
@@ -44,13 +45,19 @@ int main() {
 	srand(currentTime);
 
 	int result = rand() % 6 + 1 ;
+	// ラムダ式
+	auto fx = [=]() {return result; };
 
 	int prediction;
 	printf("奇数なら1,偶数なら2を入力してください\n");
 	scanf_s("%d",&prediction);
+
+	// std::function
+	std::function<int(int)> fx2 = [=](int i) {return i; };
+
 	PFunc p;
 	p = DiceResult;
-	setTimeout(p,result, prediction);
+	setTimeout(p, fx(), fx2(prediction));
 
 
 	return 0;
