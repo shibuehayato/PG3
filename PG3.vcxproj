@@ -129,11 +129,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="enemy\Enemy.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Minimum.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="enemy\Enemy.h" />
+    <ClInclude Include="Minimum.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
