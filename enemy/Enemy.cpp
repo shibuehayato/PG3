@@ -5,19 +5,21 @@
 void (Enemy::* Enemy::spFuncTable[])() = {
 	&Enemy::Approach,
 	&Enemy::Shoot,
-	&Enemy::Leave
+	&Enemy::Leave,
 };
 
 void Enemy::Approach()
 {
 	printf("‹ßÚ\n");
 	Sleep(3 * 1000);
+	phase_ = Phase::SHOOT;
 }
 
 void Enemy::Shoot()
 {
 	printf("ËŒ‚\n");
 	Sleep(3 * 1000);
+	phase_ = Phase::LEAVE;
 }
 
 void Enemy::Leave()
@@ -27,9 +29,5 @@ void Enemy::Leave()
 
 void Enemy::Update()
 {
-	static_cast<size_t>(phase_);
-
-	(this->*spFuncTable[0])();
-	(this->*spFuncTable[1])();
-	(this->*spFuncTable[2])();
+	(this->*spFuncTable[static_cast<size_t>(phase_)])();
 }

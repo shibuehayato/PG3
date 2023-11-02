@@ -7,7 +7,13 @@
 int main() {
 
 	std::unique_ptr<Enemy> enemy_;
-	enemy_->Update();
+	enemy_ = std::make_unique<Enemy>();
+	int i = 0;
+	while (i < 3)
+	{
+		enemy_->Update();
+		i++;
+	}
 
 	return 0;
 }

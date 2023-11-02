@@ -3,9 +3,9 @@ class Enemy
 {
 private:
 	enum class Phase {
-		Approach, 
-		Shoot,
-		Leave
+		APPROACH, 
+		SHOOT,
+		LEAVE
 	};
 
 public:
@@ -17,8 +17,7 @@ private:
 	void Leave();
 
 private:
-	Phase phase_ = Phase::Approach;
-
+	Phase phase_ = Phase::APPROACH;
 private:
 	static void (Enemy::* spFuncTable[])();
 };
