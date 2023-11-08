@@ -1,33 +1,20 @@
 ﻿#include <stdio.h>
-
-template <typename Type>
-Type Min(Type a, Type b) {
-	if (a < b)
-	{
-		return static_cast<Type>(a);
-	}
-
-	if (a > b)
-	{
-		return static_cast<Type>(b);
-	}
-}
-
-template <>
-char Min<char>(char a, char b)
-{
-	return printf("数字以外は代入できません\n");
-}
+#include "Minimum.h"
 
 int main()
 {
-	printf("%d\n", Min<int>(10, 5));
-	printf("%f\n", Min<float>(10.0f, 5.0f));
-	printf("%lf\n", Min<double>(5.5, 10.5));
+	Minimum<int, int> b1(3, 2);
+	Minimum<float, float> b2(4.0f, 10.0f);
+	Minimum<double, double> b3(0.05, 0.007);
+	Minimum<int, float> b4(8, 9.0f);
+	Minimum<int, double> b5(3, 5.0);
+	Minimum<float, double> b6(6.0f, 0.05);
 
-	char a = 'a';
-	char b = 'b';
-	Min<char>(a, b);
-
+	printf("%d\n", b1.Min());
+	printf("%f\n", b2.Min());
+	printf("%lf\n", b3.Min());
+	printf("%d\n", b4.Min());
+	printf("%d\n", b5.Min());
+	printf("%lf\n", b6.Min());
 	return 0;
 }
