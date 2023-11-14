@@ -1,4 +1,5 @@
 ﻿#include "Circle.h"
+#include <stdio.h>
 
 void Circle::Size()
 {
@@ -7,5 +8,5 @@ void Circle::Size()
 
 void Circle::Draw()
 {
-	IShape::Draw();
+	printf("円の面積は%fcm^2\n", result);
 }
