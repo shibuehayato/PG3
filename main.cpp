@@ -1,14 +1,14 @@
 ﻿#include <stdio.h>
 #include "Car.h";
 #include "Bike.h";
+#include <memory>
 
 int main()
 {
-
-	Car* car_ = nullptr;
-	car_ = new Car();
-	Bike* bike_ = nullptr;
-	bike_ = new Bike();
+	std::unique_ptr<Car> car_;
+	car_ = std::make_unique<Car>();
+	std::unique_ptr<Bike> bike_;
+	bike_ = std::make_unique<Bike>();
 
 	printf("行動\n\n");
 	car_->Run();
